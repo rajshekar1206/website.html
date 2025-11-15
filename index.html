@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GameHub - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #0b1020;
+      color: #f5f5f5;
+    }
+
+    /* Navbar */
+    header {
+      background: #111729;
+      padding: 15px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #222a3d;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #4ade80;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #4ade80;
+    }
+
+    .btn-primary {
+      background: #4ade80;
+      border: none;
+      color: #021015;
+      padding: 8px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    /* Hero section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 7%;
+      gap: 30px;
+    }
+
+    .hero-text {
+      flex: 1 1 320px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    .hero-text p {
+      color: #9ca3af;
+      margin-bottom: 25px;
+      max-width: 500px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-actions .btn-secondary {
+      border: 1px solid #4ade80;
+      background: transparent;
+      color: #4ade80;
+      padding: 8px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .hero-stats {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+    .hero-stats strong {
+      display: block;
+      font-size: 1.1rem;
+      color: #f9fafb;
+    }
+
+    .hero-image {
+      flex: 1 1 260px;
+      min-height: 220px;
+      background: radial-gradient(circle at top, #4ade80 0, #111827 55%);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image span {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* Cards section */
+    .section {
+      padding: 40px 7%;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      color: #9ca3af;
+      margin-bottom: 25px;
+      font-size: 0.95rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #111827;
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid #1f2937;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 160px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border 0.15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      border-color: #4ade80;
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      color: #a5b4fc;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .card-text {
+      color: #9ca3af;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    /* Footer */
+    footer {
+      padding: 20px 7%;
+      border-top: 1px solid #222a3d;
+      color: #6b7280;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding-top: 30px;
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      header {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header>
+    <div class="logo">GameHub</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#popular">Popular</a>
+      <a href="#categories">Categories</a>
+      <a href="#about">About</a>
+    </nav>
+    <button class="btn-primary">Sign In</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Discover & Play Your Favorite Games in One Place.</h1>
+      <p>
+        GameHub brings all your favorite titles together. Track what you play,
+        discover trending games, and build your ultimate library.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn-primary">Start Exploring</button>
+        <button class="btn-secondary">Browse as Guest</button>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <strong>200+</strong>
+          Games Listed
+        </div>
+        <div>
+          <strong>50+</strong>
+          Active Players
+        </div>
+        <div>
+          <strong>24/7</strong>
+          Updates
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <span>GameHub 003</span>
+    </div>
+  </section>
+
+  <!-- Popular Games Section -->
+  <section class="section" id="popular">
+    <h2 class="section-title">Popular Right Now</h2>
+    <p class="section-subtitle">
+      A quick look at some of the most played titles on GameHub this week.
+    </p>
+
+    <div class="card-grid">
+      <article class="card">
+        <div>
+          <div class="card-tag">Action</div>
+          <h3 class="card-title">Cyber Strike</h3>
+          <p class="card-text">
+            Fast-paced shooter with futuristic arenas and online multiplayer.
+          </p>
+        </div>
+        <div class="card-meta">
+          <span>Rating: ★★★★☆</span>
+          <span>PC / Console</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <div class="card-tag">Adventure</div>
+          <h3 class="card-title">Mystic Realms</h3>
+          <p class="card-text">
+            Explore magical worlds, solve quests, and uncover hidden secrets.
+          </p>
+        </div>
+        <div class="card-meta">
+          <span>Rating: ★★★★★</span>
+          <span>PC</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <div class="card-tag">Racing</div>
+          <h3 class="card-title">Street Velocity</h3>
+          <p class="card-text">
+            High-speed racing with realistic physics and online tournaments.
+          </p>
+        </div>
+        <div class="card-meta">
+          <span>Rating: ★★★★☆</span>
+          <span>Mobile / PC</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <div class="card-tag">Strategy</div>
+          <h3 class="card-title">Empire Builder</h3>
+          <p class="card-text">
+            Build, manage, and defend your empire against global opponents.
+          </p>
+        </div>
+        <div class="card-meta">
+          <span>Rating: ★★★★☆</span>
+          <span>PC</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="section" id="categories">
+    <h2 class="section-title">Browse by Category</h2>
+    <p class="section-subtitle">
+      Not sure what to play? Start with a genre you love.
+    </p>
+
+    <div class="card-grid">
+      <article class="card">
+        <div>
+          <div class="card-tag">Shooter</div>
+          <h3 class="card-title">Competitive FPS</h3>
+          <p class="card-text">
+            From tactical shooters to arcade blasters, find your perfect aim.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <div class="card-tag">Story</div>
+          <h3 class="card-title">Narrative Games</h3>
+          <p class="card-text">
+            Deep stories, strong characters, and immersive single-player worlds.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <div class="card-tag">Casual</div>
+          <h3 class="card-title">Chill & Relax</h3>
+          <p class="card-text">
+            Low-pressure games for when you just want to relax and have fun.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <div class="card-tag">Online</div>
+          <h3 class="card-title">Multiplayer</h3>
+          <p class="card-text">
+            Team up with friends or compete with players across the world.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <h2 class="section-title">About GameHub 003</h2>
+    <p class="section-subtitle">
+      GameHub 003 is a simple project that focuses on discovering, listing,
+      and tracking games in a clean and modern interface. This homepage is
+      your starting point — you can later connect it to a backend, add user
+      accounts, and more.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 GameHub 003. Built with ❤️ by B Rajshekar.
+  </footer>
+
+</body>
+</html>
